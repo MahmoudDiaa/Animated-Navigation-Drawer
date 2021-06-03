@@ -59,9 +59,9 @@ class AnimatedNavigationDrawer : RelativeLayout {
             resources.getColor(R.color.white)
         }
     private var primaryItemsTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.black, null)
+        resources.getColor(R.color.white, null)
     } else {
-        resources.getColor(R.color.black)
+        resources.getColor(R.color.white)
     }
     private var secondaryItemsTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         resources.getColor(R.color.black, null)
