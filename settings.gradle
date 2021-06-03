@@ -8,4 +8,4 @@
 //}
 rootProject.name = "Custom-Animated-Navigation-Drawer"
 include ':app'
-include ':customanimatednavigationdrawer'
+include ':animatedNavigationDrawer'
