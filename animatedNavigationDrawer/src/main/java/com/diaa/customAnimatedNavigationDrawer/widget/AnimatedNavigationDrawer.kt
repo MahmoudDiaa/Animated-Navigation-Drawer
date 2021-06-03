@@ -14,7 +14,6 @@ import android.widget.*
 import androidx.annotation.IntDef
 import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
-import com.diaa.customAnimatedNavigationDrawer.App
 import com.diaa.customAnimatedNavigationDrawer.R
 import com.diaa.customAnimatedNavigationDrawer.pojo.Items
 import java.util.*
@@ -37,40 +36,40 @@ class AnimatedNavigationDrawer : RelativeLayout {
 
     //Customization Variables
     private var appbarColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.white, App.getApplicationTheme())
+        resources.getColor(R.color.white, null)
     } else {
         resources.getColor(R.color.white)
     }
     private var appbarTitleTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.black, App.getApplicationTheme())
+        resources.getColor(R.color.black, null)
     } else {
         resources.getColor(R.color.black)
     }
     private var menuItemSemiTransparentColor: Int =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            resources.getColor(R.color.transparent_black_percent_60, App.getApplicationTheme())
+            resources.getColor(R.color.transparent_black_percent_60, null)
         } else {
             resources.getColor(R.color.transparent_black_percent_60)
         }
 
     private var navigationDrawerBackgroundColor: Int =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            resources.getColor(R.color.white, App.getApplicationTheme())
+            resources.getColor(R.color.white, null)
         } else {
             resources.getColor(R.color.white)
         }
     private var primaryItemsTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.black, App.getApplicationTheme())
+        resources.getColor(R.color.black, null)
     } else {
         resources.getColor(R.color.black)
     }
     private var secondaryItemsTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.black, App.getApplicationTheme())
+        resources.getColor(R.color.black, null)
     } else {
         resources.getColor(R.color.black)
     }
     private var menuIconTintColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.black, App.getApplicationTheme())
+        resources.getColor(R.color.black, null)
     } else {
         resources.getColor(R.color.black)
     }
@@ -210,7 +209,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
                 ResourcesCompat.getDrawable(
                     resources,
                     menuItemList!![i].imageId,
-                    App.getApplicationTheme()
+                    null
                 )
             )
             titleTV.text = menuItemList!![i].title
@@ -335,14 +334,14 @@ class AnimatedNavigationDrawer : RelativeLayout {
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_appbarTitleTextColor,
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    resources.getColor(appbarTitleTextColor, App.getApplicationTheme())
+                    resources.getColor(appbarTitleTextColor, null)
                 } else resources.getColor(appbarTitleTextColor)
             )
         )
         menuiconTintColor = attrs.getColor(
             R.styleable.AnimatedNavigationDrawer_HamMenuIconTintColor,
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                resources.getColor(appbarTitleTextColor, App.getApplicationTheme())
+                resources.getColor(appbarTitleTextColor, null)
             } else resources.getColor(menuIconTintColor)
 
         )
@@ -351,7 +350,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
                 R.styleable.AnimatedNavigationDrawer_HamMenuItemSemiTransparentColor,
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    resources.getColor(menuItemSemiTransparentColor, App.getApplicationTheme())
+                    resources.getColor(menuItemSemiTransparentColor, null)
                 } else resources.getColor(menuItemSemiTransparentColor)
             )
         )
@@ -360,7 +359,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
                 R.styleable.AnimatedNavigationDrawer_navigationDrawerBackgroundColor,
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    resources.getColor(navigationDrawerBackgroundColor, App.getApplicationTheme())
+                    resources.getColor(navigationDrawerBackgroundColor, null)
                 } else  resources.getColor(navigationDrawerBackgroundColor)
             )
         )
@@ -369,7 +368,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
                 R.styleable.AnimatedNavigationDrawer_navigationDrawerBackgroundColor,
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    resources.getColor(primaryItemsTextColor, App.getApplicationTheme())
+                    resources.getColor(primaryItemsTextColor, null)
                 } else  resources.getColor(primaryItemsTextColor)
             )
         )
@@ -378,7 +377,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
                 R.styleable.AnimatedNavigationDrawer_secondaryMenuItemTextColor,
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    resources.getColor(secondaryItemsTextColor, App.getApplicationTheme())
+                    resources.getColor(secondaryItemsTextColor, null)
                 } else    resources.getColor(secondaryItemsTextColor)
             )
         )
