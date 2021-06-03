@@ -13,7 +13,7 @@
 
     <path
       android:name="iconPath"
-      android:fillColor="@android:color/white"
+      android:fillColor="@android:color/black"
       android:pathData="@string/path_drawer"/>
   </group>
 </vector>

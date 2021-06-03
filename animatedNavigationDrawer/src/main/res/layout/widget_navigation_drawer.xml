@@ -14,9 +14,10 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/menuSV"
+            android:id="@+id/menu_sv"
             android:paddingTop="100dp"
             android:clipToPadding="false"
+            android:contentDescription="scroll view"
             android:fillViewport="true"
             android:layout_weight="0.85">
             <LinearLayout
