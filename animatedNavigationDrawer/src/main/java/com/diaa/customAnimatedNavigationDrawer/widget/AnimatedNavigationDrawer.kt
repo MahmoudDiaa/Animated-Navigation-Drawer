@@ -1,4 +1,4 @@
-package com.ekc.customanimatednavigationdrawer.widget
+package com.diaa.customAnimatedNavigationDrawer.widget
 
 import android.content.Context
 import android.content.res.TypedArray
@@ -9,15 +9,14 @@ import android.os.Looper
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.IntDef
 import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
-import com.ekc.customanimatednavigationdrawer.App
-import com.ekc.customanimatednavigationdrawer.R
-import com.ekc.customanimatednavigationdrawer.pojo.Items
+import com.diaa.customAnimatedNavigationDrawer.App
+import com.diaa.customAnimatedNavigationDrawer.R
+import com.diaa.customAnimatedNavigationDrawer.pojo.Items
 import java.util.*
 
 class AnimatedNavigationDrawer : RelativeLayout {

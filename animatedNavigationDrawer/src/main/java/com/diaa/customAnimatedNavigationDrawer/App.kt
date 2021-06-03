@@ -1,4 +1,4 @@
-package com.ekc.customanimatednavigationdrawer
+package com.diaa.customAnimatedNavigationDrawer
 
 import android.app.Application
 import android.content.res.Resources

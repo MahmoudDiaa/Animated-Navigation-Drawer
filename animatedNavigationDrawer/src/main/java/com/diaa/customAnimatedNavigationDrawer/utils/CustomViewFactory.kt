@@ -1,10 +1,10 @@
-package com.ekc.customanimatednavigationdrawer.utils
+package com.diaa.customAnimatedNavigationDrawer.utils
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import com.ekc.customanimatednavigationdrawer.widget.AnimatedNavigationDrawer
+import com.diaa.customAnimatedNavigationDrawer.widget.AnimatedNavigationDrawer
 
 class CustomViewFactory private constructor() : LayoutInflater.Factory {
     override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
