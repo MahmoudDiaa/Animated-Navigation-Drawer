@@ -86,19 +86,18 @@ class AnimatedNavigationDrawer : RelativeLayout {
 
     //To check if drawer is open or not
     //Other stuff
-    var isDrawerOpen = false
-        private set
+    private var isDrawerOpen = false
     private var currentPos = 0
     var centerX = 0f
     var centerY = 0f
 
 
     //Listeners
-    var onHamMenuClickListener: OnHamMenuClickListener? = null
-    var onItemsClickListener: OnItemsClickListener? = null
-    var drawerListener: DrawerListener? = null
+    private var onHamMenuClickListener: OnHamMenuClickListener? = null
+    private var onItemsClickListener: OnItemsClickListener? = null
+    private var drawerListener: DrawerListener? = null
 
-    constructor(context: Context?) : super(context) {}
+    constructor(context: Context?) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         init(context)
         val a = context.theme.obtainStyledAttributes(
@@ -135,7 +134,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
         menuSV = rootView.findViewById(R.id.menu_sv)
         menuLL = rootView.findViewById(R.id.menuLL)
         containerLL = rootView.findViewById(R.id.containerLL)
-        menuItemList = ArrayList<DrawerItems>()
+        menuItemList = ArrayList()
         menuIV!!.setOnClickListener {
             hamMenuClicked()
             if (isDrawerOpen) {
@@ -229,7 +228,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
     }
 
     //Listener for monitoring events about drawer.
-        interface DrawerListener {
+    interface DrawerListener {
         //Called when a drawer is opening.
         fun onDrawerOpening()
 
@@ -245,6 +244,32 @@ class AnimatedNavigationDrawer : RelativeLayout {
         //Called when the drawer motion state changes. The new state will
         fun onDrawerStateChanged(@State newState: Int)
     }
+
+
+    fun getOnHamMenuClickListener(): OnHamMenuClickListener? {
+        return onHamMenuClickListener
+    }
+
+    fun setOnHamMenuClickListener(onHamMenuClickListener: OnHamMenuClickListener?) {
+        this.onHamMenuClickListener = onHamMenuClickListener
+    }
+
+    fun getOnMenuItemClickListener(): OnItemsClickListener? {
+        return onItemsClickListener
+    }
+
+    fun setOnMenuItemClickListener(onMenuItemClickListener: OnItemsClickListener) {
+        onItemsClickListener = onMenuItemClickListener
+    }
+
+    fun getDrawerListener(): DrawerListener? {
+        return drawerListener
+    }
+
+    fun setDrawerListener(drawerListener: DrawerListener?) {
+        this.drawerListener = drawerListener
+    }
+
 
     private fun hamMenuClicked() {
         if (onHamMenuClickListener != null) {
@@ -296,11 +321,11 @@ class AnimatedNavigationDrawer : RelativeLayout {
         appbarTitleTV!!.animate().translationX(centerX).start()
         containerCV!!.animate().translationX(rootLayout!!.x).translationY(rootLayout!!.y)
             .setDuration(500).start()
-        val handler = Handler()
-        handler.postDelayed({
+
+        Handler(Looper.getMainLooper()).postDelayed({
             drawerClosed()
-            containerCV!!.cardElevation = 0.toFloat()
-            containerCV!!.radius = 0.toFloat()
+            containerCV!!.cardElevation = 0f
+            containerCV!!.radius = 0f
         }, 500)
     }
 
@@ -327,7 +352,10 @@ class AnimatedNavigationDrawer : RelativeLayout {
         setAppbarColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_appbarColor,
-                resources.getColor(appbarColor)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) resources.getColor(
+                    appbarColor,
+                    null
+                ) else resources.getColor(appbarColor)
             )
         )
         setAppbarTitleTextColor(
@@ -360,7 +388,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     resources.getColor(navigationDrawerBackgroundColor, null)
-                } else  resources.getColor(navigationDrawerBackgroundColor)
+                } else resources.getColor(navigationDrawerBackgroundColor)
             )
         )
         setPrimaryItemsTextColor(
@@ -369,7 +397,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     resources.getColor(primaryItemsTextColor, null)
-                } else  resources.getColor(primaryItemsTextColor)
+                } else resources.getColor(primaryItemsTextColor)
             )
         )
         setSecondaryItemsTextColor(
@@ -378,7 +406,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     resources.getColor(secondaryItemsTextColor, null)
-                } else    resources.getColor(secondaryItemsTextColor)
+                } else resources.getColor(secondaryItemsTextColor)
             )
         )
         appbarTitleTextSize =
@@ -456,6 +484,16 @@ class AnimatedNavigationDrawer : RelativeLayout {
             this.menuIconTintColor = menuIconTintColor
             menuIV!!.setColorFilter(menuIconTintColor)
         }
+
+
+    fun getMenuIconSize(): Float {
+        return menuIconSize
+    }
+
+    fun setMenuIconSize(menuIconSize: Float) {
+        //Todo Change Icon Size
+        this.menuIconSize = menuIconSize
+    }
 
     fun getItemsSemiTransparentColor(): Int {
         return menuItemSemiTransparentColor
