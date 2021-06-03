@@ -15,7 +15,7 @@ import androidx.annotation.IntDef
 import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
 import com.diaa.customAnimatedNavigationDrawer.R
-import com.diaa.customAnimatedNavigationDrawer.pojo.Items
+import com.diaa.customAnimatedNavigationDrawer.pojo.DrawerItems
 import java.util.*
 
 class AnimatedNavigationDrawer : RelativeLayout {
@@ -24,7 +24,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
     private var mLayoutInflater: LayoutInflater? = null
 
     //Layouts
-    private var menuItemList: MutableList<Items>? = null
+    private var menuItemList: MutableList<DrawerItems>? = null
     private var rootLayout: RelativeLayout? = null
     private var appbarRL: RelativeLayout? = null
     private var containerCV: CardView? = null
@@ -132,10 +132,10 @@ class AnimatedNavigationDrawer : RelativeLayout {
         containerCV = rootView.findViewById(R.id.containerCV)
         appbarTitleTV = rootView.findViewById(R.id.appBarTitleTV)
         menuIV = rootView.findViewById(R.id.menuIV)
-        menuSV = rootView.findViewById(R.id.menuSV)
+        menuSV = rootView.findViewById(R.id.menu_sv)
         menuLL = rootView.findViewById(R.id.menuLL)
         containerLL = rootView.findViewById(R.id.containerLL)
-        menuItemList = ArrayList<Items>()
+        menuItemList = ArrayList<DrawerItems>()
         menuIV!!.setOnClickListener {
             hamMenuClicked()
             if (isDrawerOpen) {
@@ -410,19 +410,19 @@ class AnimatedNavigationDrawer : RelativeLayout {
     }
 
     //Adding menu to drawer
-    fun addItems(menuItem: Items) {
+    fun addItems(menuItem: DrawerItems) {
         if (menuItemList != null) {
             menuItemList!!.add(menuItem)
         }
     }
 
     //Getting the list of Menu Items
-    fun getItemsList(): List<Items>? {
+    fun getItemsList(): List<DrawerItems>? {
         return menuItemList
     }
 
     //Setting the list of Menu Items
-    fun setItemsList(menuItemList: MutableList<Items>?) {
+    fun setItemsList(menuItemList: MutableList<DrawerItems>?) {
         this.menuItemList = menuItemList
         initMenu()
     }

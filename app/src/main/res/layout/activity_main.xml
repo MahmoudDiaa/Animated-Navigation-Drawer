@@ -7,11 +7,12 @@
     tools:context=".MainActivity">
 
     <com.diaa.customAnimatedNavigationDrawer.widget.AnimatedNavigationDrawer
-
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </com.diaa.customAnimatedNavigationDrawer.widget.AnimatedNavigationDrawer>
 </androidx.constraintlayout.widget.ConstraintLayout>
