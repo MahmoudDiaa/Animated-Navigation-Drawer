@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.IntDef
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.diaa.customAnimatedNavigationDrawer.R
 import com.diaa.customAnimatedNavigationDrawer.pojo.DrawerItems
