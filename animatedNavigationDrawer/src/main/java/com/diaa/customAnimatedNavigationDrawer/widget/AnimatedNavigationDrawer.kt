@@ -35,45 +35,6 @@ open class AnimatedNavigationDrawer : NavigationView {
      var drawerContainer: LinearLayout? = null
     private var containerLL: LinearLayout? = null
 
-    //Customization Variables
-//    private var appbarColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//        resources.getColor(R.color.white, null)
-//    } else {
-//        resources.getColor(R.color.white)
-//    }
-//    private var appbarTitleTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//        resources.getColor(R.color.black, null)
-//    } else {
-//        resources.getColor(R.color.black)
-//    }
-//    private var menuItemSemiTransparentColor: Int =
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            resources.getColor(R.color.transparent_black_percent_60, null)
-//        } else {
-//            resources.getColor(R.color.transparent_black_percent_60)
-//        }
-//
-//    private var navigationDrawerBackgroundColor: Int =
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            resources.getColor(R.color.white, null)
-//        } else {
-//            resources.getColor(R.color.white)
-//        }
-//    private var primaryItemsTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//        resources.getColor(R.color.white, null)
-//    } else {
-//        resources.getColor(R.color.white)
-//    }
-//    private var secondaryItemsTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//        resources.getColor(R.color.black, null)
-//    } else {
-//        resources.getColor(R.color.black)
-//    }
-//    private var menuIconTintColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//        resources.getColor(R.color.black, null)
-//    } else {
-//        resources.getColor(R.color.black)
-//    }
     private var appbarColor: Int = Color.WHITE
 
     private var appbarTitleTextColor: Int = Color.BLACK
