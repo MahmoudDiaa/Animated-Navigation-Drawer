@@ -27,12 +27,13 @@ open class AnimatedNavigationDrawer : NavigationView {
     //Layouts
     private var menuItemList: MutableList<DrawerItems>? = null
     private var rootLayout: RelativeLayout? = null
-     var appbarRL: RelativeLayout? = null
+    var appbarRL: RelativeLayout? = null
     private var containerCV: CardView? = null
     private var appbarTitleTV: TextView? = null
     private var menuIV: ImageView? = null
     private var menuSV: ScrollView? = null
-     var drawerContainer: LinearLayout? = null
+    var drawerContainer: LinearLayout? = null
+
     private var containerLL: LinearLayout? = null
 
     private var appbarColor: Int = Color.WHITE
