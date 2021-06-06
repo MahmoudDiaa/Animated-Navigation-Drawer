@@ -17,9 +17,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.diaa.customAnimatedNavigationDrawer.R
 import com.diaa.customAnimatedNavigationDrawer.pojo.DrawerItems
+import com.google.android.material.navigation.NavigationView
 import java.util.*
 
-class AnimatedNavigationDrawer : RelativeLayout {
+class AnimatedNavigationDrawer : NavigationView {
     //Context
     private var mContext: Context? = null
     private var mLayoutInflater: LayoutInflater? = null
@@ -105,7 +106,7 @@ class AnimatedNavigationDrawer : RelativeLayout {
     private var onItemsClickListener: OnItemsClickListener? = null
     private var drawerListener: DrawerListener? = null
 
-    constructor(context: Context?) : super(context)
+    constructor(context: Context?) : super(context!!)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         init(context)
         val a = context.theme.obtainStyledAttributes(
