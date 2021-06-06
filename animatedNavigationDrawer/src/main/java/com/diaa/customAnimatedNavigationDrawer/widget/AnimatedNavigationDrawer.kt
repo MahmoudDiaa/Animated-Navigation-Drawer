@@ -27,12 +27,12 @@ open class AnimatedNavigationDrawer : NavigationView {
     //Layouts
     private var menuItemList: MutableList<DrawerItems>? = null
     private var rootLayout: RelativeLayout? = null
-    private var appbarRL: RelativeLayout? = null
+     var appbarRL: RelativeLayout? = null
     private var containerCV: CardView? = null
     private var appbarTitleTV: TextView? = null
     private var menuIV: ImageView? = null
     private var menuSV: ScrollView? = null
-    private var menuLL: LinearLayout? = null
+     var drawerContainer: LinearLayout? = null
     private var containerLL: LinearLayout? = null
 
     //Customization Variables
@@ -143,7 +143,7 @@ open class AnimatedNavigationDrawer : NavigationView {
         appbarTitleTV = rootView.findViewById(R.id.appBarTitleTV)
         menuIV = rootView.findViewById(R.id.menuIV)
         menuSV = rootView.findViewById(R.id.menu_sv)
-        menuLL = rootView.findViewById(R.id.menuLL)
+        drawerContainer = rootView.findViewById(R.id.menuLL)
         containerLL = rootView.findViewById(R.id.containerLL)
         menuItemList = ArrayList()
         menuIV!!.setOnClickListener {
@@ -191,18 +191,18 @@ open class AnimatedNavigationDrawer : NavigationView {
             rootRL.setOnClickListener { v ->
                 if (currentPos != Integer.valueOf(v.tag.toString())) {
                     val backCV1: CardView =
-                        menuLL!!.findViewWithTag<View>("cv$currentPos") as CardView
+                        drawerContainer!!.findViewWithTag<View>("cv$currentPos") as CardView
                     val title1 =
-                        menuLL!!.findViewWithTag<View>("tv$currentPos") as TextView
+                        drawerContainer!!.findViewWithTag<View>("tv$currentPos") as TextView
                     backCV1.animate().translationX(rootRL.x - backCV1.width).setDuration(300)
                         .start()
                     currentPos = Integer.valueOf(v.tag.toString())
                     menuItemClicked(currentPos)
                     appbarTitleTV!!.text = menuItemList!![currentPos].title
                     val backCV: CardView =
-                        menuLL!!.findViewWithTag<View>("cv$currentPos") as CardView
+                        drawerContainer!!.findViewWithTag<View>("cv$currentPos") as CardView
                     val title =
-                        menuLL!!.findViewWithTag<View>("tv$currentPos") as TextView
+                        drawerContainer!!.findViewWithTag<View>("tv$currentPos") as TextView
                     backCV.visibility = INVISIBLE
                     println("Drawer Testing " + backCV.tag)
                     backCV.animate().translationX(rootRL.x - backCV.width).setDuration(1)
@@ -231,7 +231,7 @@ open class AnimatedNavigationDrawer : NavigationView {
             )
             titleTV.text = menuItemList!![i].title
             titleTV1.text = menuItemList!![i].title
-            menuLL!!.addView(view)
+            drawerContainer!!.addView(view)
         }
     }
 
