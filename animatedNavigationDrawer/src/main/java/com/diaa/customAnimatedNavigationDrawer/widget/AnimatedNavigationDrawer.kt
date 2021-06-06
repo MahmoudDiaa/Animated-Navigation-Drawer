@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.IntDef
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.diaa.customAnimatedNavigationDrawer.R
 import com.diaa.customAnimatedNavigationDrawer.pojo.DrawerItems
@@ -35,44 +36,51 @@ class AnimatedNavigationDrawer : RelativeLayout {
     private var containerLL: LinearLayout? = null
 
     //Customization Variables
-    private var appbarColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.white, null)
-    } else {
-        resources.getColor(R.color.white)
-    }
-    private var appbarTitleTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.black, null)
-    } else {
-        resources.getColor(R.color.black)
-    }
-    private var menuItemSemiTransparentColor: Int =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            resources.getColor(R.color.transparent_black_percent_60, null)
-        } else {
-            resources.getColor(R.color.transparent_black_percent_60)
-        }
-
-    private var navigationDrawerBackgroundColor: Int =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            resources.getColor(R.color.white, null)
-        } else {
-            resources.getColor(R.color.white)
-        }
-    private var primaryItemsTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.white, null)
-    } else {
-        resources.getColor(R.color.white)
-    }
-    private var secondaryItemsTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.black, null)
-    } else {
-        resources.getColor(R.color.black)
-    }
-    private var menuIconTintColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        resources.getColor(R.color.black, null)
-    } else {
-        resources.getColor(R.color.black)
-    }
+//    private var appbarColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//        resources.getColor(R.color.white, null)
+//    } else {
+//        resources.getColor(R.color.white)
+//    }
+//    private var appbarTitleTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//        resources.getColor(R.color.black, null)
+//    } else {
+//        resources.getColor(R.color.black)
+//    }
+//    private var menuItemSemiTransparentColor: Int =
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            resources.getColor(R.color.transparent_black_percent_60, null)
+//        } else {
+//            resources.getColor(R.color.transparent_black_percent_60)
+//        }
+//
+//    private var navigationDrawerBackgroundColor: Int =
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            resources.getColor(R.color.white, null)
+//        } else {
+//            resources.getColor(R.color.white)
+//        }
+//    private var primaryItemsTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//        resources.getColor(R.color.white, null)
+//    } else {
+//        resources.getColor(R.color.white)
+//    }
+//    private var secondaryItemsTextColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//        resources.getColor(R.color.black, null)
+//    } else {
+//        resources.getColor(R.color.black)
+//    }
+//    private var menuIconTintColor: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//        resources.getColor(R.color.black, null)
+//    } else {
+//        resources.getColor(R.color.black)
+//    }
+    private var appbarColor: Int = R.color.white
+    private var appbarTitleTextColor: Int = R.color.black
+    private var menuItemSemiTransparentColor = R.color.transparent_black_percent_60
+    private var navigationDrawerBackgroundColor: Int = R.color.white
+    private var primaryItemsTextColor: Int = R.color.white
+    private var secondaryItemsTextColor: Int = R.color.black
+    private var menuIconTintColor: Int = R.color.black
 
     //Todo Change Icon Size
     private var menuIconSize = 30f
@@ -153,10 +161,15 @@ class AnimatedNavigationDrawer : RelativeLayout {
             val backgroundIV = view.findViewById<ImageView>(R.id.backgroundIV)
             val backgroundCV: CardView = view.findViewById(R.id.backgroundCV)
             val tintView = view.findViewById(R.id.tintView) as View
-
-            tintView.setBackgroundColor(menuItemSemiTransparentColor)
-            titleTV.setTextColor(secondaryItemsTextColor)
-            titleTV1.setTextColor(primaryItemsTextColor)
+            tintView.setBackgroundColor(
+                ContextCompat.getColor(context, menuItemSemiTransparentColor)
+            )
+            titleTV.setTextColor(
+                ContextCompat.getColor(context, secondaryItemsTextColor)
+            )
+            titleTV1.setTextColor(
+                ContextCompat.getColor(context, primaryItemsTextColor)
+            )
             titleTV.textSize = secondaryItemsTextSize
             titleTV1.textSize = primaryItemsTextSize
             val rootRL = view.findViewById<RelativeLayout>(R.id.rootRL)
@@ -352,61 +365,43 @@ class AnimatedNavigationDrawer : RelativeLayout {
         setAppbarColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_appbarColor,
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) resources.getColor(
-                    appbarColor,
-                    null
-                ) else resources.getColor(appbarColor)
+                ContextCompat.getColor(context, appbarColor)
             )
         )
         setAppbarTitleTextColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_appbarTitleTextColor,
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    resources.getColor(appbarTitleTextColor, null)
-                } else resources.getColor(appbarTitleTextColor)
+                ContextCompat.getColor(context, appbarTitleTextColor)
             )
         )
         menuiconTintColor = attrs.getColor(
             R.styleable.AnimatedNavigationDrawer_HamMenuIconTintColor,
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                resources.getColor(appbarTitleTextColor, null)
-            } else resources.getColor(menuIconTintColor)
+            ContextCompat.getColor(context, menuIconTintColor)
 
         )
         setItemsSemiTransparentColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_HamMenuItemSemiTransparentColor,
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    resources.getColor(menuItemSemiTransparentColor, null)
-                } else resources.getColor(menuItemSemiTransparentColor)
+                ContextCompat.getColor(context, menuItemSemiTransparentColor)
             )
         )
         setNavigationDrawerBackgroundColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_navigationDrawerBackgroundColor,
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    resources.getColor(navigationDrawerBackgroundColor, null)
-                } else resources.getColor(navigationDrawerBackgroundColor)
+                ContextCompat.getColor(context, navigationDrawerBackgroundColor)
             )
         )
         setPrimaryItemsTextColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_navigationDrawerBackgroundColor,
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    resources.getColor(primaryItemsTextColor, null)
-                } else resources.getColor(primaryItemsTextColor)
+                ContextCompat.getColor(context, primaryItemsTextColor)
             )
         )
         setSecondaryItemsTextColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_secondaryMenuItemTextColor,
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    resources.getColor(secondaryItemsTextColor, null)
-                } else resources.getColor(secondaryItemsTextColor)
+ContextCompat.getColor(context,secondaryItemsTextColor)
             )
         )
         appbarTitleTextSize =
