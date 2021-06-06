@@ -2,8 +2,8 @@ package com.diaa.customAnimatedNavigationDrawer.widget
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.Color
 import android.graphics.Typeface
-import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
@@ -20,7 +20,7 @@ import com.diaa.customAnimatedNavigationDrawer.pojo.DrawerItems
 import com.google.android.material.navigation.NavigationView
 import java.util.*
 
-class AnimatedNavigationDrawer : NavigationView {
+open class AnimatedNavigationDrawer : NavigationView {
     //Context
     private var mContext: Context? = null
     private var mLayoutInflater: LayoutInflater? = null
@@ -75,13 +75,16 @@ class AnimatedNavigationDrawer : NavigationView {
 //    } else {
 //        resources.getColor(R.color.black)
 //    }
-    private var appbarColor: Int = R.color.white
-    private var appbarTitleTextColor: Int = R.color.black
-    private var menuItemSemiTransparentColor = R.color.transparent_black_percent_60
-    private var navigationDrawerBackgroundColor: Int = R.color.white
-    private var primaryItemsTextColor: Int = R.color.white
-    private var secondaryItemsTextColor: Int = R.color.black
-    private var menuIconTintColor: Int = R.color.black
+    private var appbarColor: Int = Color.WHITE
+
+    private var appbarTitleTextColor: Int = Color.BLACK
+    private var menuItemSemiTransparentColor = Color.argb(60, 0, 0, 0)
+
+    //        R.color.transparent_black_percent_60
+    private var navigationDrawerBackgroundColor: Int = Color.WHITE
+    private var primaryItemsTextColor: Int = Color.WHITE
+    private var secondaryItemsTextColor: Int = Color.BLACK
+    private var menuIconTintColor: Int = Color.BLACK
 
     //Todo Change Icon Size
     private var menuIconSize = 30f
@@ -163,13 +166,15 @@ class AnimatedNavigationDrawer : NavigationView {
             val backgroundCV: CardView = view.findViewById(R.id.backgroundCV)
             val tintView = view.findViewById(R.id.tintView) as View
             tintView.setBackgroundColor(
-                ContextCompat.getColor(context, menuItemSemiTransparentColor)
+
+                menuItemSemiTransparentColor
+
             )
             titleTV.setTextColor(
-                ContextCompat.getColor(context, secondaryItemsTextColor)
+                secondaryItemsTextColor
             )
             titleTV1.setTextColor(
-                ContextCompat.getColor(context, primaryItemsTextColor)
+                primaryItemsTextColor
             )
             titleTV.textSize = secondaryItemsTextSize
             titleTV1.textSize = primaryItemsTextSize
@@ -366,43 +371,43 @@ class AnimatedNavigationDrawer : NavigationView {
         setAppbarColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_appbarColor,
-                ContextCompat.getColor(context, appbarColor)
+                appbarColor
             )
         )
         setAppbarTitleTextColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_appbarTitleTextColor,
-                ContextCompat.getColor(context, appbarTitleTextColor)
+                appbarTitleTextColor
             )
         )
         menuiconTintColor = attrs.getColor(
             R.styleable.AnimatedNavigationDrawer_HamMenuIconTintColor,
-            ContextCompat.getColor(context, menuIconTintColor)
+            menuIconTintColor
 
         )
         setItemsSemiTransparentColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_HamMenuItemSemiTransparentColor,
-                ContextCompat.getColor(context, menuItemSemiTransparentColor)
+                menuItemSemiTransparentColor
             )
         )
         setNavigationDrawerBackgroundColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_navigationDrawerBackgroundColor,
 
-                ContextCompat.getColor(context, navigationDrawerBackgroundColor)
+                navigationDrawerBackgroundColor
             )
         )
         setPrimaryItemsTextColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_navigationDrawerBackgroundColor,
-                ContextCompat.getColor(context, primaryItemsTextColor)
+                primaryItemsTextColor
             )
         )
         setSecondaryItemsTextColor(
             attrs.getColor(
                 R.styleable.AnimatedNavigationDrawer_secondaryMenuItemTextColor,
-ContextCompat.getColor(context,secondaryItemsTextColor)
+                secondaryItemsTextColor
             )
         )
         appbarTitleTextSize =
@@ -429,6 +434,7 @@ ContextCompat.getColor(context,secondaryItemsTextColor)
     }
 
     //To change the AppBar Title
+
     fun setAppbarTitleTV(name: String?) {
         appbarTitleTV!!.text = name
     }
