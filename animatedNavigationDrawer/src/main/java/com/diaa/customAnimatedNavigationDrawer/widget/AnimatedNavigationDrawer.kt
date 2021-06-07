@@ -1,25 +1,31 @@
 package com.diaa.customAnimatedNavigationDrawer.widget
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Resources
 import android.content.res.TypedArray
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.IntDef
+import androidx.appcompat.widget.ThemeUtils
 import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
 import com.diaa.customAnimatedNavigationDrawer.R
 import com.diaa.customAnimatedNavigationDrawer.pojo.DrawerItems
+import com.diaa.customAnimatedNavigationDrawer.utils.OnSwipeTouchListener
+import com.google.android.material.internal.ThemeEnforcement
 import com.google.android.material.navigation.NavigationView
 import java.util.*
 
-open class AnimatedNavigationDrawer : NavigationView {
+class AnimatedNavigationDrawer : NavigationView {
     //Context
     private var mContext: Context? = null
     private var mLayoutInflater: LayoutInflater? = null
@@ -71,7 +77,10 @@ open class AnimatedNavigationDrawer : NavigationView {
     private var drawerListener: DrawerListener? = null
 
     constructor(context: Context?) : super(context!!)
+
+    @SuppressLint("RestrictedApi")
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        Log.e("Animated Class", "attrs ${ThemeEnforcement.checkAppCompatTheme(context)}")
         init(context)
         val a = context.theme.obtainStyledAttributes(
             attrs,
@@ -116,6 +125,36 @@ open class AnimatedNavigationDrawer : NavigationView {
                 openDrawer()
             }
         }
+        onSwipe()
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun onSwipe() {
+        containerLL!!.setOnTouchListener(object : OnSwipeTouchListener(context) {
+            override fun onSwipeRight() {
+                if (!isDrawerOpen) {
+                    openDrawer()
+                }
+
+            }
+
+            override fun onSwipeLeft() {
+                if (isDrawerOpen)
+                    closeDrawer()
+
+            }
+
+            override fun onSwipeUp() {
+                super.onSwipeUp()
+            }
+
+            override fun onSwipeDown() {
+                super.onSwipeDown()
+            }
+        }
+        )
+
+
     }
 
     private fun initMenu() {
@@ -323,8 +362,8 @@ open class AnimatedNavigationDrawer : NavigationView {
         containerCV!!.animate()
             .translationX(rootLayout!!.x + rootLayout!!.width / 8 + rootLayout!!.width / 2)
             .translationY(250f).setDuration(500).start()
-        val handler = Handler()
-        handler.postDelayed({ drawerOpened() }, 250)
+
+        Handler(Looper.getMainLooper()).postDelayed({ drawerOpened() }, 250)
     }
 
     //set Attributes from xml

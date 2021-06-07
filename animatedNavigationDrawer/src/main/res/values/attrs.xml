@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="AnimatedNavigationDrawer">
+    <declare-styleable name="AnimatedNavigationDrawer" >
         <attr name="appbarColor" format="color" />
         <attr name="appbarTitleTextColor" format="color" />
         <attr name="appbarTitleTextSize" format="dimension"/>

@@ -11,7 +11,7 @@ class CustomViewFactory private constructor() : LayoutInflater.Factory {
         //Check if it's one of our custom classes, if so, return one using
         //the Context/AttributeSet constructor
         return if (AnimatedNavigationDrawer::class.java.simpleName == name) {
-            AnimatedNavigationDrawer(context, attrs)
+            AnimatedNavigationDrawer(context)
         } else null
 
         //Not one of ours; let the system handle it
