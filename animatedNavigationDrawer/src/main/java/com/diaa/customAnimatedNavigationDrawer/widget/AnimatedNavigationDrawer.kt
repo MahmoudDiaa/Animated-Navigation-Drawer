@@ -116,6 +116,8 @@ class AnimatedNavigationDrawer : NavigationView {
         menuSV = rootView.findViewById(R.id.menu_sv)
         drawerContainer = rootView.findViewById(R.id.menuLL)
         containerLL = rootView.findViewById(R.id.containerLL)
+        if (checkAr())
+            menuIV!!.setImageResource(R.drawable.asl_pathmorph_drawer_arabic_edition)
         menuItemList = ArrayList()
         menuIV!!.setOnClickListener {
             hamMenuClicked()
@@ -356,14 +358,29 @@ class AnimatedNavigationDrawer : NavigationView {
         menuIV!!.setImageState(stateSet, true)
         containerCV!!.cardElevation = 100.0.toFloat()
         containerCV!!.radius = 60.0.toFloat()
-        appbarTitleTV!!.animate()
-            .translationX(centerX + menuIV!!.width + menuIV!!.width / 4 + appbarTitleTV!!.width / 2 - appbarRL!!.width / 2)
-            .start()
-        containerCV!!.animate()
-            .translationX(rootLayout!!.x + rootLayout!!.width / 8 + rootLayout!!.width / 2)
-            .translationY(250f).setDuration(500).start()
+        if (checkAr()) {
+            appbarTitleTV!!.animate()
+                .translationX(centerX + menuIV!!.width + menuIV!!.width / 4 - appbarTitleTV!!.width / 2 + appbarRL!!.width / 4)
+                .start()
+            containerCV!!.animate()
+                .translationX(rootLayout!!.x - rootLayout!!.width / 8 - rootLayout!!.width / 2)
+                .translationY(250f).setDuration(500).start()
 
+
+        } else {
+            appbarTitleTV!!.animate()
+                .translationX(centerX + menuIV!!.width + menuIV!!.width / 4 + appbarTitleTV!!.width / 2 - appbarRL!!.width / 2)
+                .start()
+            containerCV!!.animate()
+                .translationX(rootLayout!!.x + rootLayout!!.width / 8 + rootLayout!!.width / 2)
+                .translationY(250f).setDuration(500).start()
+        }
         Handler(Looper.getMainLooper()).postDelayed({ drawerOpened() }, 250)
+    }
+
+    private fun checkAr(): Boolean {
+        Log.e("Animated Navigation", "checkAr ${Locale.getDefault().displayLanguage}")
+        return Locale.getDefault().displayLanguage == "ar" || Locale.getDefault().displayLanguage == "العربية"
     }
 
     //set Attributes from xml
