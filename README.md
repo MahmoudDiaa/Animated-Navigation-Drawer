@@ -230,7 +230,7 @@ public class test extends AppCompatActivity {
 ### Customization
 
 
-```xml
+``` xml
     <com.diaa.customAnimatedNavigationDrawer.widget.AnimatedNavigationDrawer
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -251,6 +251,8 @@ public class test extends AppCompatActivity {
             android:layout_height="match_parent"/>
 
     </com.diaa.customAnimatedNavigationDrawer.widget.AnimatedNavigationDrawer> ```
+	
+	
 	
 	
 # License
