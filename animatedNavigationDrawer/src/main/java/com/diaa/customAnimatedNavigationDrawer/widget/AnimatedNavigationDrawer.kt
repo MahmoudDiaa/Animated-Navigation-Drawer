@@ -134,15 +134,20 @@ class AnimatedNavigationDrawer : NavigationView {
     private fun onSwipe() {
         containerLL!!.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeRight() {
-                if (!isDrawerOpen) {
+                if (!isDrawerOpen && !checkAr()) {
                     openDrawer()
+                } else if (isDrawerOpen && checkAr()) {
+                    closeDrawer()
                 }
+
 
             }
 
             override fun onSwipeLeft() {
-                if (isDrawerOpen)
+                if (isDrawerOpen && !checkAr())
                     closeDrawer()
+                else if (!isDrawerOpen && checkAr())
+                    openDrawer()
 
             }
 
