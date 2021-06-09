@@ -21,7 +21,7 @@ allprojects
 # Add the dependency
 
 	dependencies {
-	       implementation 'com.github.MahmoudDiaa:Animated-Navigation-Drawer:1.1.4'
+	       implementation 'com.github.MahmoudDiaa:Animated-Navigation-Drawer:1.2.0'
 	}
 	
 	
