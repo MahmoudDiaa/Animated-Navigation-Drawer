@@ -1,6 +1,6 @@
 # Animated-Navigation-Drawer
 
-![alt text](https://github.com/MahmoudDiaa/Animated-Navigation-Drawer/blob/master/SVID_20210609_133704_1.gif)
+![application](https://github.com/MahmoudDiaa/Animated-Navigation-Drawer/blob/master/application.gif)
 
 [![](https://jitpack.io/v/MahmoudDiaa/Animated-Navigation-Drawer.svg)](https://jitpack.io/#MahmoudDiaa/Animated-Navigation-Drawer)
 
