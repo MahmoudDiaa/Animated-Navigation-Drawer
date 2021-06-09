@@ -250,9 +250,9 @@ public class test extends AppCompatActivity {
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-    </com.diaa.customAnimatedNavigationDrawer.widget.AnimatedNavigationDrawer>
+    </com.diaa.customAnimatedNavigationDrawer.widget.AnimatedNavigationDrawer> ```
 	
-	```
+	
 # License
 
 
