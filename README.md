@@ -253,11 +253,10 @@ public class test extends AppCompatActivity {
     </com.diaa.customAnimatedNavigationDrawer.widget.AnimatedNavigationDrawer>
 	
 	
-	
-	
+```
 # License
 
-```
+
 Copyright 2016 Andrea Maglie
 
 Licensed under the Apache License, Version 2.0 (the "License");
